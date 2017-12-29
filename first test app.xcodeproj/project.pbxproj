@@ -14,6 +14,9 @@
 		16FC08A71FF599F100631CAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16FC08A51FF599F100631CAC /* LaunchScreen.storyboard */; };
 		16FC08B21FF599F100631CAC /* first_test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC08B11FF599F100631CAC /* first_test_appTests.swift */; };
 		16FC08BD1FF599F100631CAC /* first_test_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC08BC1FF599F100631CAC /* first_test_appUITests.swift */; };
+		16FC08CD1FF5A6A400631CAC /* 3x3grid.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16FC08CA1FF5A6A300631CAC /* 3x3grid.gif */; };
+		16FC08CE1FF5A6A400631CAC /* ic_radio_button_unchecked_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC08CB1FF5A6A400631CAC /* ic_radio_button_unchecked_3x.png */; };
+		16FC08CF1FF5A6A400631CAC /* ic_close_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FC08CC1FF5A6A400631CAC /* ic_close_3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		16FC08B81FF599F100631CAC /* first test appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "first test appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FC08BC1FF599F100631CAC /* first_test_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = first_test_appUITests.swift; sourceTree = "<group>"; };
 		16FC08BE1FF599F100631CAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16FC08CA1FF5A6A300631CAC /* 3x3grid.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3x3grid.gif; sourceTree = "<group>"; };
+		16FC08CB1FF5A6A400631CAC /* ic_radio_button_unchecked_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_radio_button_unchecked_3x.png; sourceTree = "<group>"; };
+		16FC08CC1FF5A6A400631CAC /* ic_close_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close_3x.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 		16FC089B1FF599F100631CAC /* first test app */ = {
 			isa = PBXGroup;
 			children = (
+				16FC08CA1FF5A6A300631CAC /* 3x3grid.gif */,
+				16FC08CC1FF5A6A400631CAC /* ic_close_3x.png */,
+				16FC08CB1FF5A6A400631CAC /* ic_radio_button_unchecked_3x.png */,
 				16FC089C1FF599F100631CAC /* AppDelegate.swift */,
 				16FC089E1FF599F100631CAC /* ViewController.swift */,
 				16FC08A01FF599F100631CAC /* Main.storyboard */,
@@ -232,9 +241,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16FC08CE1FF5A6A400631CAC /* ic_radio_button_unchecked_3x.png in Resources */,
 				16FC08A71FF599F100631CAC /* LaunchScreen.storyboard in Resources */,
 				16FC08A41FF599F100631CAC /* Assets.xcassets in Resources */,
+				16FC08CF1FF5A6A400631CAC /* ic_close_3x.png in Resources */,
 				16FC08A21FF599F100631CAC /* Main.storyboard in Resources */,
+				16FC08CD1FF5A6A400631CAC /* 3x3grid.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
