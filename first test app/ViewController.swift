@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.view.addBackground()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,20 +35,23 @@ class ViewController: UIViewController {
             let img = cross ? UIImage(named: "ic_close_3x.png") : UIImage(named: "ic_radio_button_unchecked_3x.png")
             sender.setImage(img, for: UIControlState.normal)
             sender.setTitle("", for: UIControlState.normal)
-            let backgorundColor = cross ? UIColor.red : UIColor.blue
+            let backgorundColor = cross ? UIColor.white : UIColor.gray
             sender.tintColor = backgorundColor
-            cross = !cross
+            
             crossPlay[sender.tag] = cross ? true : false
             winningCombinations.forEach({ (combination) in
                 if crossPlay[combination[0]] != nil && crossPlay[combination[0]] == crossPlay[combination[1]] && crossPlay[combination[1]] == crossPlay[combination[2]]
                 {
-                    let alert = UIAlertController(title: "Congratulations", message: "You Have Won!", preferredStyle: UIAlertControllerStyle.alert)
+                    let winner = cross ? "Crosses" : "Noughts"
+                    let alert = UIAlertController(title: "Congratulations", message: "\(winner) wins!", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Restart", style: UIAlertActionStyle.default, handler:
                         {(alert: UIAlertAction!) in self.reset()}
                     ))
                     self.present(alert, animated: true, completion: nil)
                 }
             })
+            
+            cross = !cross
             
         }
     }
@@ -65,5 +69,22 @@ class ViewController: UIViewController {
         crossPlay = [Bool?](repeating: nil, count: 9)
         cross = true
     }
+    
 }
 
+extension UIView {
+    func addBackground() {
+        
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+        
+        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        imageViewBackground.image = UIImage(named: "background.png")
+        
+        // you can change the content mode:
+        imageViewBackground.contentMode = UIViewContentMode.scaleAspectFill
+        self.addSubview(imageViewBackground)
+        self.sendSubview(toBack: imageViewBackground)
+    }
+    
+}
