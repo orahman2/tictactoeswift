@@ -17,12 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreFieldOne: UITextField!
     @IBOutlet weak var scoreFieldTwo: UITextField!
     
-    var cross: Bool = true
+    var playerOneTurn: Bool = true
     var crossPlay: [Bool?] = [Bool?](repeating: nil, count: 9)
     let winningCombinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     let playerCross = Player("", UIColor.white, true, UIImage(named: "ic_close_3x.png")!, 0)
     let playerNought = Player("", UIColor.gray, false, UIImage(named: "ic_radio_button_unchecked_3x.png")!, 0)
     var currentPlayer: Player?
+    var singlePlayer: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,11 @@ class ViewController: UIViewController {
         turnLabel.tintColor = nil
         
         scoreOneLabel.text = "\(playerCross)'s score"
-        scoreFieldOne.allowsEditingTextAttributes = false
+        scoreFieldOne.isUserInteractionEnabled = false
         scoreFieldOne.text = String(playerCross.score)
         
         scoreTwoLabel.text = "\(playerNought)'s score"
-        scoreFieldTwo.allowsEditingTextAttributes = false
+        scoreFieldTwo.isUserInteractionEnabled = false
         scoreFieldTwo.text = String(playerNought.score)
         
         currentPlayer = playerCross
@@ -48,34 +49,54 @@ class ViewController: UIViewController {
     
     @IBAction func playTurn(_ sender: UIButton)
     {
-        if(crossPlay[sender.tag] == nil)
-        {
-            sender.setImage(currentPlayer?.img, for: UIControlState.normal)
-            sender.setTitle("", for: UIControlState.normal)
-            sender.tintColor = currentPlayer?.color
-            
-            crossPlay[sender.tag] = currentPlayer?.tag
-            winningCombinations.forEach({ (combination) in
-                if crossPlay[combination[0]] != nil && crossPlay[combination[0]] == crossPlay[combination[1]] && crossPlay[combination[1]] == crossPlay[combination[2]]
-                {
-                    currentPlayer?.score+=1
-                    scoreFieldOne.text = String(playerCross.score)
-                    scoreFieldTwo.text = String(playerNought.score)
-                    resetPopUp("Congratulations", "\(currentPlayer!) wins!")
-                }
-                else if(noMovesLeft()){
-                    resetPopUp("Oops", "Looks like its a tie!")
-//                    newGame()
-                }
-            })
-            
-            //            let triggerTime = (Int64(NSEC_PER_SEC) * 120)
-            //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            //                self.functionToCall()
-            //            })
-            cross = !cross
-            nextTurn()
+        if(crossPlay[sender.tag] == nil){
+            play(sender.tag)
         }
+        
+    }
+    
+    fileprivate func checkWin() {
+        winningCombinations.forEach({ (combination) in
+            if crossPlay[combination[0]] != nil && crossPlay[combination[0]] == crossPlay[combination[1]] && crossPlay[combination[1]] == crossPlay[combination[2]]
+            {
+                currentPlayer?.score+=1
+                scoreFieldOne.text = String(playerCross.score)
+                scoreFieldTwo.text = String(playerNought.score)
+                resetPopUp("Congratulations", "\(currentPlayer!) wins!")
+            }
+        })
+    }
+    
+    fileprivate func autoPlay() {
+        if(singlePlayer && (currentPlayer?.auto)!){
+            let choices = [0,1,2,3,4,5,6,7,8].shuffled()
+            
+            for index in choices{
+                if crossPlay[index] == nil{
+                    play(index)
+                    break
+                }
+            }
+            
+        }
+    }
+    
+    func play(_ senderNumber: Int){
+        
+        collectionOfButtons![senderNumber].setImage(currentPlayer?.img, for: UIControlState.normal)
+        collectionOfButtons![senderNumber].setTitle("", for: UIControlState.normal)
+        collectionOfButtons![senderNumber].tintColor = currentPlayer?.color
+        
+        crossPlay[senderNumber] = currentPlayer?.tag
+        checkWin()
+        
+        if(noMovesLeft()){
+            resetPopUp("Oops", "Looks like its a tie!")
+        }
+        
+        playerOneTurn = !playerOneTurn
+        nextTurn()
+        autoPlay()
     }
     
     @IBAction func resetGrid(_ sender: Any) {
@@ -83,7 +104,7 @@ class ViewController: UIViewController {
     }
     
     func reset(){
-//        cross = !cross
+        //        cross = !cross
         nextTurn()
         collectionOfButtons?.forEach({ (button) in
             button.setImage(nil, for: UIControlState.normal)
@@ -109,8 +130,9 @@ class ViewController: UIViewController {
     }
     
     func nextTurn(){
-        currentPlayer = cross ? playerCross : playerNought
+        currentPlayer = playerOneTurn ? playerCross : playerNought
         turnLabel.text = "Player \(currentPlayer!)'s turn"
+        turnLabel.textColor = currentPlayer?.color
     }
 }
 
@@ -120,6 +142,7 @@ class Player: CustomStringConvertible{
     var tag: Bool
     var img: UIImage
     var score: Int
+    var auto: Bool = false
     
     init(_ name: String, _ color: UIColor, _ tag: Bool, _ img: UIImage, _ score: Int){
         self.name = name
@@ -148,3 +171,27 @@ extension UIView {
     }
     
 }
+
+extension MutableCollection {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+        
+        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = index(firstUnshuffled, offsetBy: d)
+            swapAt(firstUnshuffled, i)
+        }
+    }
+}
+
+extension Sequence {
+    /// Returns an array with the contents of this sequence, shuffled.
+    func shuffled() -> [Element] {
+        var result = Array(self)
+        result.shuffle()
+        return result
+    }
+}
+

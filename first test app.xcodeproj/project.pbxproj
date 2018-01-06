@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		168194DD1FF6614400EDD3A2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 168194DC1FF6614400EDD3A2 /* background.png */; };
 		168194DF1FF6CEAC00EDD3A2 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168194DE1FF6CEAC00EDD3A2 /* LaunchViewController.swift */; };
+		168194E11FF6E0F600EDD3A2 /* ic_check_circle_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 168194E01FF6E0F500EDD3A2 /* ic_check_circle_3x.png */; };
 		16FC089D1FF599F100631CAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC089C1FF599F100631CAC /* AppDelegate.swift */; };
 		16FC089F1FF599F100631CAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC089E1FF599F100631CAC /* ViewController.swift */; };
 		16FC08A21FF599F100631CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16FC08A01FF599F100631CAC /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		168194DC1FF6614400EDD3A2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		168194DE1FF6CEAC00EDD3A2 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		168194E01FF6E0F500EDD3A2 /* ic_check_circle_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_circle_3x.png; sourceTree = "<group>"; };
 		16FC08991FF599F100631CAC /* first test app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "first test app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FC089C1FF599F100631CAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16FC089E1FF599F100631CAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		16FC089B1FF599F100631CAC /* first test app */ = {
 			isa = PBXGroup;
 			children = (
+				168194E01FF6E0F500EDD3A2 /* ic_check_circle_3x.png */,
 				168194DC1FF6614400EDD3A2 /* background.png */,
 				16FC08CA1FF5A6A300631CAC /* 3x3grid.gif */,
 				16FC08CC1FF5A6A400631CAC /* ic_close_3x.png */,
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16FC08CE1FF5A6A400631CAC /* ic_radio_button_unchecked_3x.png in Resources */,
+				168194E11FF6E0F600EDD3A2 /* ic_check_circle_3x.png in Resources */,
 				168194DD1FF6614400EDD3A2 /* background.png in Resources */,
 				16FC08A41FF599F100631CAC /* Assets.xcassets in Resources */,
 				16FC08CF1FF5A6A400631CAC /* ic_close_3x.png in Resources */,
@@ -436,6 +440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "first test app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fatomar.first-test-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,6 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "first test app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fatomar.first-test-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";

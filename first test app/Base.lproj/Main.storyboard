@@ -63,6 +63,21 @@
                                 <color key="textColor" red="0.83590521289999997" green="0.84597636009999999" blue="0.82583406579999996" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single Player Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh3-jf-rgl">
+                                <rect key="frame" x="44" y="308" width="302" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.83590521289999997" green="0.84597636009999999" blue="0.82583406579999996" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OO-uR-rks">
+                                <rect key="frame" x="12" y="305" width="27" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ic_radio_button_unchecked_3x.png"/>
+                                <connections>
+                                    <action selector="toggleSinglePlayer:" destination="Rmy-k8-5tW" eventType="touchUpInside" id="ncJ-Oo-XBU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aiJ-RB-HO1"/>
@@ -146,16 +161,6 @@
                                     <action selector="playTurn:" destination="Qhj-iW-4YY" eventType="touchUpInside" id="gTB-hX-4bo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wg-Pw-8pb">
-                                <rect key="frame" x="168" y="593" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetGrid:" destination="Qhj-iW-4YY" eventType="touchUpInside" id="Qaz-O7-5if"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-Wc-PaW">
                                 <rect key="frame" x="129" y="283" width="116" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,6 +203,26 @@
                                 <color key="textColor" red="0.83590521294776099" green="0.84597636009170984" blue="0.82583406580381202" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-0E-0lj">
+                                <rect key="frame" x="75" y="593" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Rmy-k8-5tW" kind="show" id="D9B-9y-DdF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wg-Pw-8pb">
+                                <rect key="frame" x="261" y="593" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetGrid:" destination="Qhj-iW-4YY" eventType="touchUpInside" id="Qaz-O7-5if"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dUB-mD-BwQ"/>
@@ -210,15 +235,15 @@
                         <outlet property="scoreOneLabel" destination="hX5-uX-bTp" id="IoG-nc-l0e"/>
                         <outlet property="scoreTwoLabel" destination="GoZ-iw-Za0" id="7Ea-3r-Cvo"/>
                         <outlet property="turnLabel" destination="mnd-Lz-Xgc" id="zX7-xc-FeN"/>
-                        <outletCollection property="collectionOfButtons" destination="Fpk-1v-cEV" collectionClass="NSMutableArray" id="B7G-d3-lnI"/>
-                        <outletCollection property="collectionOfButtons" destination="IIJ-On-wub" collectionClass="NSMutableArray" id="dLU-Sf-UXS"/>
-                        <outletCollection property="collectionOfButtons" destination="Cmj-by-09c" collectionClass="NSMutableArray" id="c96-at-9MO"/>
-                        <outletCollection property="collectionOfButtons" destination="zBq-2c-68A" collectionClass="NSMutableArray" id="I8r-OH-Gmi"/>
-                        <outletCollection property="collectionOfButtons" destination="e9e-Wc-PaW" collectionClass="NSMutableArray" id="xbF-uo-zw3"/>
-                        <outletCollection property="collectionOfButtons" destination="LHC-VY-Tvh" collectionClass="NSMutableArray" id="hCJ-Fo-cSW"/>
-                        <outletCollection property="collectionOfButtons" destination="5a3-gD-Q3T" collectionClass="NSMutableArray" id="r7e-TP-CwY"/>
-                        <outletCollection property="collectionOfButtons" destination="ijz-tS-PLt" collectionClass="NSMutableArray" id="JPI-uu-LrF"/>
-                        <outletCollection property="collectionOfButtons" destination="Zqg-N4-iwe" collectionClass="NSMutableArray" id="IIe-B4-mT7"/>
+                        <outletCollection property="collectionOfButtons" destination="Fpk-1v-cEV" collectionClass="NSMutableArray" id="7OP-X3-1AB"/>
+                        <outletCollection property="collectionOfButtons" destination="Cmj-by-09c" collectionClass="NSMutableArray" id="H39-SD-Xom"/>
+                        <outletCollection property="collectionOfButtons" destination="zBq-2c-68A" collectionClass="NSMutableArray" id="WT5-w2-KIP"/>
+                        <outletCollection property="collectionOfButtons" destination="LHC-VY-Tvh" collectionClass="NSMutableArray" id="xuI-qS-KYk"/>
+                        <outletCollection property="collectionOfButtons" destination="e9e-Wc-PaW" collectionClass="NSMutableArray" id="YZ1-UH-Sdn"/>
+                        <outletCollection property="collectionOfButtons" destination="IIJ-On-wub" collectionClass="NSMutableArray" id="i0P-p1-eye"/>
+                        <outletCollection property="collectionOfButtons" destination="5a3-gD-Q3T" collectionClass="NSMutableArray" id="xxb-1S-ES3"/>
+                        <outletCollection property="collectionOfButtons" destination="ijz-tS-PLt" collectionClass="NSMutableArray" id="Gev-tW-cmv"/>
+                        <outletCollection property="collectionOfButtons" destination="Zqg-N4-iwe" collectionClass="NSMutableArray" id="spX-Ez-Hvy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQI-z1-8rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,5 +254,6 @@
     </scenes>
     <resources>
         <image name="3x3grid.gif" width="326" height="325"/>
+        <image name="ic_radio_button_unchecked_3x.png" width="72" height="72"/>
     </resources>
 </document>
